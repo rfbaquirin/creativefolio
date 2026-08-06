@@ -243,7 +243,7 @@ nav {
 .about-text p { margin-bottom: 20px; font-size: 17px; line-height: 1.8; }
 .about-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2px;
   background: var(--border);
   border-radius: var(--radius-md);
@@ -267,7 +267,7 @@ nav {
 #framework { }
 .framework-steps {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 2px;
   background: var(--border);
   border-radius: var(--radius-md);
@@ -831,7 +831,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
 .accountability > p { font-size: 15px; max-width: 720px; margin-bottom: 28px; }
 .accountability-stats {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 2px;
   background: var(--border);
   border-radius: var(--radius-md);
@@ -933,7 +933,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
 .ai-workflows > p.ai-intro { font-size: 15px; max-width: 720px; margin-bottom: 28px; }
 .ai-workflow-items {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   background: var(--border);
   border-radius: var(--radius-md);
@@ -1091,15 +1091,23 @@ footer p { font-size: 13px; color: var(--text-muted); }
 }
 .results-stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   background: var(--border);
   border-radius: var(--radius-md);
   overflow: hidden;
 }
-@media (max-width: 700px) {
-  .results-stats { grid-template-columns: repeat(2, 1fr); }
+.results-stats--2col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 900px) {
+  .results-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 600px) {
+  .results-stats,
+  .results-stats--2col,
+  .about-stats { grid-template-columns: 1fr; }
   .visual-placeholder-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat-num { font-size: 28px; word-break: break-word; }
+  .accountability-stats .stat-num { font-size: 24px; }
 }
