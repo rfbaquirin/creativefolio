@@ -962,6 +962,25 @@ footer p { font-size: 13px; color: var(--text-muted); }
 .crosslink a { color: var(--aqua); border-bottom: 1px solid var(--aqua-dim); }
 .crosslink a:hover { color: var(--text-primary); border-color: var(--text-primary); }
 
+/* ============ AMAZON PORTFOLIO BUTTON (used wherever we link to the e-commerce site) ============ */
+.btn-outline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--aqua);
+  background: transparent;
+  border: 1px solid var(--aqua-dim);
+  padding: 10px 20px;
+  border-radius: 100px;
+  margin-top: 12px;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+.btn-outline-link:hover { background: var(--aqua); color: var(--text-on-aqua); border-color: var(--aqua); }
+.btn-outline-link svg { transition: transform var(--transition); flex-shrink: 0; }
+.btn-outline-link:hover svg { transform: translateX(3px); }
+
 /* ============ RESPONSIVE (additions) ============ */
 @media (max-width: 900px) {
   .cs-arc { grid-template-columns: 1fr; }
@@ -984,7 +1003,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
 }
 .visual-placeholder-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 160px));
   gap: 10px;
 }
 .visual-placeholder-tile {
@@ -1107,7 +1126,7 @@ footer p { font-size: 13px; color: var(--text-muted); }
   .results-stats,
   .results-stats--2col,
   .about-stats { grid-template-columns: 1fr; }
-  .visual-placeholder-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .visual-placeholder-grid { gap: 8px; }
   .stat-num { font-size: 28px; word-break: break-word; }
   .accountability-stats .stat-num { font-size: 24px; }
 }
